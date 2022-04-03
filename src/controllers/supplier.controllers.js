@@ -20,6 +20,27 @@ addsupplier = async(req,res) => {
     }
 }
 
-module.exports = {
-    addsupplier
+//Get All Suppliers
+
+getsuppliers = async(req,res) => {
+
+    try{
+        const getSuppliers = await suppliermodal.find()
+        if(getSuppliers){
+            res.status(302).send(getSuppliers)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+        }
 }
+
+module.exports = {
+    addsupplier,
+    getsuppliers
+}
+
+
