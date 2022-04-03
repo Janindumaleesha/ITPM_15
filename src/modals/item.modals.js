@@ -35,6 +35,6 @@ const Item = new mongoose.Schema({
 
 })
 
-//all the data assign to mongo db ("supplier") database collection name, it may be simple or capital but this name save in mongodb in simple letter only and plural suppliers
+//all the data assign to mongo db ("item") database collection name, it may be simple or capital but this name save in mongodb in simple letter only and plural suppliers
 
 module.exports = mongoose.model('item',Item)
