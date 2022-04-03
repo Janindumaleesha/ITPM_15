@@ -17,7 +17,25 @@ addinvoice = async(req,res) => {
     }
 }
 
+//Get all invoice
+getinvoices = async(req,res) => {
+    try{
+        const getInvoices = await invoicemodal.find()
+        if(getInvoices){
+            res.status(302).send(getInvoices)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+        
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+}
+
 module.exports = {
-    addinvoice
+    addinvoice,
+    getinvoices
 }
 
