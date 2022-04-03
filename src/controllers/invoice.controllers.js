@@ -1,6 +1,23 @@
-console.log("hi")
+//import invoice modals
+const invoicemodal = require('../modals/invoice.modals')
 
-console.log("janindu")
+//Add invoices
+addinvoice = async(req,res) => {
+    try{
+        const createInvoice = await invoicemodal.create(req.body)
+        if(createInvoice){
+            res.status(201).send("Invoice created")
+        }
+        else{
+            res.status(204).send("Invalid Invoice creation")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+}
 
-console.log("Nalini")
+module.exports = {
+    addinvoice
+}
 
