@@ -1,7 +1,7 @@
 //import supplier modal
 const suppliermodal = require('../modals/supplier.modals')
 
-//Add invoices
+//Add supplier
 addsupplier = async(req,res) => {
 
     try{
