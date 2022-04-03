@@ -19,6 +19,27 @@ additem = async(req,res) => {
     }
 }
 
-module.exports = {
-    additem
+//GetAllItems
+
+getitems = async(req,res) => {
+    try{
+        const getItems = await itemModal.find()
+        if(getItems){
+            res.status(302).send(getItems)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+        
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
 }
+
+module.exports = {
+    additem,
+    getitems
+    
+}
+
