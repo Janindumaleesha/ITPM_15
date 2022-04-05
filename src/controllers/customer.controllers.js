@@ -38,7 +38,26 @@ getcustomers = async(req,res) => {
 }
 
 
+//Get customer by ID
+
+getcustomerId = async(req,res) => {
+    try{
+        const getCustomerId = await customermodal.findById(req.params.customerId)
+        if(getCustomerId){
+            res.status(302).send(getCustomerId)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+
+}
+
 module.exports = {
     addcustomer,
-    getcustomers
+    getcustomers,
+    getcustomerId
 }
