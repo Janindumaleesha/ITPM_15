@@ -9,3 +9,4 @@ customerRouter.post('/addcustomer' , customerController.addcustomer)
 customerRouter.get('/getcustomer',customerController.getcustomers)
 
 //Get Customer By Id
+customerRouter.get('/getcustomerid/:customerId',customerController.getcustomerId)
