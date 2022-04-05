@@ -6,6 +6,6 @@ const invoiceRouter = express.Router()
 invoiceRouter.post('/addinvoice' , invoiceController.addinvoice)
 
 //Get All Invoices
-
+invoiceRouter.get('/getinvoice' , invoiceController.getinvoices)
 
 //Get Invoice By Id
