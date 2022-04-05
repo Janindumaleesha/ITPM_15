@@ -1,7 +1,7 @@
 //import customer modal
 const customermodal = require('../modals/customer.modals')
 
-//Add customer
+//Add new customer
 addcustomer = async(req,res) => {
 
     try{
