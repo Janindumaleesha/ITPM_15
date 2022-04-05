@@ -34,8 +34,26 @@ getinvoices = async(req,res) => {
     }
 }
 
+//Get Invoice by ID
+getinvoiceId = async(req,res) => {
+    try{
+        const getInvoiceId = await invoicemodal.findById(req.params.invoiceId)
+        if(getInvoiceId){
+            res.status(302).send(getInvoiceId)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+
+}
+
 module.exports = {
     addinvoice,
-    getinvoices
+    getinvoices,
+    getinvoiceId
 }
 
