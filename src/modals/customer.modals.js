@@ -5,7 +5,7 @@ const Customer = new mongoose.Schema({
     cus_id :{
         type: String,
         required: true,
-        unique: true    //validation
+        unique: true   //Add validation
     },
 
     customer_type :{
