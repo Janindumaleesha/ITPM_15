@@ -38,9 +38,28 @@ getsuppliers = async(req,res) => {
         }
 }
 
+//Get supplier by ID
+
+getsupplierId = async(req,res) => {
+    try{
+        const getSupplierId = await suppliermodal.findById(req.params.supplierId)
+        if(getSupplierId){
+            res.status(302).send(getSupplierId)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+
+}
+
 module.exports = {
     addsupplier,
-    getsuppliers
+    getsuppliers,
+    getsupplierId
 }
 
 
