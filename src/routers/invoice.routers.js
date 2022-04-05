@@ -9,3 +9,4 @@ invoiceRouter.post('/addinvoice' , invoiceController.addinvoice)
 invoiceRouter.get('/getinvoice' , invoiceController.getinvoices)
 
 //Get Invoice By Id
+invoiceRouter.get('/getinvoiceid/:invoiceId' , invoiceController.getinvoiceId)
