@@ -6,6 +6,6 @@ const customerRouter = express.Router()
 customerRouter.post('/addcustomer' , customerController.addcustomer)
 
 //Get All Customers
-
+customerRouter.get('/getcustomer',customerController.getcustomers)
 
 //Get Customer By Id
