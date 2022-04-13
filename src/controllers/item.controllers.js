@@ -37,9 +37,28 @@ getitems = async(req,res) => {
     }
 }
 
+//Get item by ID
+
+getitemId = async(req,res) => {
+    try{
+        const getItemId = await itemModal.findById(req.params.itemId)
+        if(getItemId){
+            res.status(302).send(getItemId)
+        }
+        else{
+            res.status(404).send("nothing")
+        }
+    }
+    catch(err){
+        res.status(500).send("Something went wrong")
+    }
+
+}
+
 module.exports = {
     additem,
-    getitems
+    getitems,
+    getitemId
     
 }
 
