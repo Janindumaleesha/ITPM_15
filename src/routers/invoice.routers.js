@@ -10,3 +10,5 @@ invoiceRouter.get('/getinvoice' , invoiceController.getinvoices)
 
 //Get Invoice By Id
 invoiceRouter.get('/getinvoiceid/:invoiceId' , invoiceController.getinvoiceId)
+
+module.exports = invoiceRouter
