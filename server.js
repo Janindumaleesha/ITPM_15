@@ -14,7 +14,7 @@ const UserRouter = require('./src/routers/user.routers')
 
 
 //import Supplier Router
-
+const SupplierRouter = require('./src/routers/supplier.routers')
 
 //import Item Router
 
@@ -37,7 +37,7 @@ app.use('/user', UserRouter)
 
 
 //Use Supplier Router
-
+app.use('/supplier', SupplierRouter)
 
 //Use Item Router
 
