@@ -11,7 +11,7 @@ const cors = require('cors')
 const UserRouter = require('./src/routers/user.routers')
 
 //import Customer Router
-
+const CustomerRouter = require('./src/routers/customer.routers')
 
 //import Supplier Router
 
@@ -34,7 +34,7 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use('/user', UserRouter)
 
 //Use Customer Router
-
+app.use('/customer', CustomerRouter)
 
 //Use Supplier Router
 
