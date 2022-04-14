@@ -10,3 +10,5 @@ supplierRouter.get('/getsupplier' , supplierController.getsuppliers)
 
 //Get Supplier By Id
 supplierRouter.get('/getsupplierid/:supplierId' , supplierController.getsupplierId)
+
+module.exports = supplierRouter
