@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Blog = new mongoose.Schema({
+const Invoice = new mongoose.Schema({
 
     cus_name :{
         type : String,
