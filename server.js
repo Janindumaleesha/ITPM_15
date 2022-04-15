@@ -16,8 +16,8 @@ const CustomerRouter = require('./src/routers/customer.routers')
 //import Supplier Router
 const SupplierRouter = require('./src/routers/supplier.routers')
 
-//import Item Router
-
+//import Item Router 
+const ItemRouter = require('./src/routers/item.routers')
 
 //import Invoice Router
 const InvoiceRouter = require('./src/routers/invoice.routers')
@@ -40,7 +40,7 @@ app.use('/customer', CustomerRouter)
 app.use('/supplier', SupplierRouter)
 
 //Use Item Router
-
+app.use('/item', ItemRouter)
 
 //Use Invoice Router
 app.use('/invoice', InvoiceRouter)
