@@ -50,6 +50,10 @@ app.get('/get', (req,res)=>{
     res.send("Get method running successfully")
 })
 
+//database connection
+mongoose.connect('mongodb://localhost:27017/inventory', ()=>{
+    console.log("database connected")
+});
 
 /// ================ SERVER ================ ///
 
