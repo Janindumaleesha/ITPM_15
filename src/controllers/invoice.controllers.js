@@ -23,7 +23,7 @@ getinvoices = async(req,res) => {
     try{
         const getInvoices = await invoicemodal.find()
         if(getInvoices){
-            res.status(302).send(getInvoices)
+            res.status(200).send(getInvoices)
         }
         else{
             res.status(404).send("nothing")
