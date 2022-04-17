@@ -27,7 +27,7 @@ getsuppliers = async(req,res) => {
     try{
         const getSuppliers = await suppliermodal.find()
         if(getSuppliers){
-            res.status(302).send(getSuppliers)
+            res.status(200).send(getSuppliers)
         }
         else{
             res.status(404).send("nothing")
