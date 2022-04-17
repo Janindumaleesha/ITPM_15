@@ -42,12 +42,12 @@ const Customer = new mongoose.Schema({
     },
 
     customer_Work_Phone:{
-        type:Number,
+        type:String,
         required:true
     },
 
     customer_Mobile_Phone:{
-        type:Number,
+        type:String,
         required:true
     },
 

@@ -26,7 +26,7 @@ getcustomers = async(req,res) => {
     try{
         const getCustomers = await customermodal.find()
         if(getCustomers){
-            res.status(302).send(getCustomers)
+            res.status(200).send(getCustomers)
         }
         else{
             res.status(404).send("nothing")
@@ -44,7 +44,7 @@ getcustomerId = async(req,res) => {
     try{
         const getCustomerId = await customermodal.findById(req.params.customerId)
         if(getCustomerId){
-            res.status(302).send(getCustomerId)
+            res.status(200).send(getCustomerId)
         }
         else{
             res.status(404).send("nothing")
