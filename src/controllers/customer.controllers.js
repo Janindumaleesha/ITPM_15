@@ -56,8 +56,39 @@ getcustomerId = async(req,res) => {
 
 }
 
+//Update Customer
+updatecustomer = async(req,res) => {
+    try{
+        const findCustomerID = await customermodal.findById(req.params.customerId)
+        try{
+            if(findCustomerID){
+                const updateCustomer = await customermodal.updateOne({_id:findCustomerID._id},{$set:req.body})
+                if(updateCustomer){
+                    res.status(200).send("Updated Customer")
+                }
+                else{
+                    res.status(404).send("Not Updated Customer")
+                }
+            }
+            else{
+                res.status(404).send("nothing")
+                console.log(err)
+            }
+        }
+        catch(err){
+            res.status(500).send(err)
+            console.log(err)
+        } 
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
 module.exports = {
     addcustomer,
     getcustomers,
-    getcustomerId
+    getcustomerId,
+    updatecustomer
 }
