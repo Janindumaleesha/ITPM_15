@@ -38,12 +38,12 @@ const Supplier = new mongoose.Schema({
     },
 
     supplier_Work_Phone:{
-        type:Number,
+        type:String,
         required:true
     },
 
     supplier_Mobile_Phone:{
-        type:Number,
+        type:String,
         required:true
     },
 

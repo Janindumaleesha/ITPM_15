@@ -25,7 +25,7 @@ getitems = async(req,res) => {
     try{
         const getItems = await itemModal.find()
         if(getItems){
-            res.status(302).send(getItems)
+            res.status(200).send(getItems)
         }
         else{
             res.status(404).send("nothing")

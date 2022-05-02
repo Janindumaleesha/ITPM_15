@@ -29,8 +29,7 @@ const Item = new mongoose.Schema({
     },
     
     collected_date:{
-        type: String,
-        required:true
+        type: Date
     }
 
 })
