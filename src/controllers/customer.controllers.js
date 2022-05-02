@@ -86,9 +86,27 @@ updatecustomer = async(req,res) => {
     }
 }
 
+//Delete Customer
+deletecustomer = async(req,res) => {
+    try{
+        const findCustomer = await customermodal.deleteOne({customerId:{$_id:'customerId'}})
+        if(findCustomer){
+            res.status(200).send("Deleted Customer")
+        }     
+        else{
+            res.status(404).send("Not Deleted Customer")
+        }      
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
 module.exports = {
     addcustomer,
     getcustomers,
     getcustomerId,
-    updatecustomer
+    updatecustomer,
+    deletecustomer
 }
