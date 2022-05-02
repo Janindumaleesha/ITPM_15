@@ -11,4 +11,10 @@ customerRouter.get('/getcustomer',customerController.getcustomers)
 //Get Customer By Id
 customerRouter.get('/getcustomerid/:customerId',customerController.getcustomerId)
 
+//Update Customer
+customerRouter.put('/updatecustomer/:customerId',customerController.updatecustomer)
+
+//Delete Customer
+customerRouter.delete('/deletecustomer/:customerId',customerController.deletecustomer)
+
 module.exports = customerRouter
