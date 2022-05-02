@@ -52,6 +52,31 @@ getinvoiceId = async(req,res) => {
 
 }
 
+//Update Invoice
+updateInvoice = async(req,res) => {
+    try{
+        const findInvoiceID = await invoicemodal.findById(req.params.invoiceId)
+        if(findInvoiceID){
+            const updateInvoice = await invoicemodal.updateOne({_id:findInvoiceID._id},{$set:req.body})
+            if(updateInvoice){
+                res.status(200).send("Updated Invoice")
+            }
+            else{
+                res.status(304).send("Not Updated Invoice")
+            }
+        }
+        else{
+            res.status(404).send("nothing")
+        } 
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
+//Delete Invoice
+
 module.exports = {
     addinvoice,
     getinvoices,
