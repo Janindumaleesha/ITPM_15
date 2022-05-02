@@ -53,7 +53,7 @@ getinvoiceId = async(req,res) => {
 }
 
 //Update Invoice
-updateInvoice = async(req,res) => {
+updateinvoice = async(req,res) => {
     try{
         const findInvoiceID = await invoicemodal.findById(req.params.invoiceId)
         if(findInvoiceID){
@@ -76,10 +76,27 @@ updateInvoice = async(req,res) => {
 }
 
 //Delete Invoice
+deleteinvoice = async(req,res) => {
+    try{
+        const findInvoice = await invoicemodal.deleteOne({invoiceId:{$_id:'invoiceId'}})
+        if(findBlog){
+            res.status(301).send("Deleted Invoice")
+        }     
+        else{
+            res.status(301).send("Not Deleted Invoice")
+        }      
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
 
 module.exports = {
     addinvoice,
     getinvoices,
-    getinvoiceId
+    getinvoiceId,
+    updateinvoice,
+    deleteinvoice
 }
 
