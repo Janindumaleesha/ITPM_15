@@ -57,10 +57,42 @@ getsupplierId = async(req,res) => {
 
 }
 
+//Update Supplier
+updatesupplier = async(req,res) => {
+    try{
+        const findSupplierID = await suppliermodal.findById(req.params.supplierId)
+        try{
+            if(findSupplierID){
+                const updateSupplier = await suppliermodal.updateOne({_id:findSupplierID._id},{$set:req.body})
+                if(updateSupplier){
+                    res.status(200).send("Updated Supplier")
+                }
+                else{
+                    res.status(404).send("Not Updated Supplier")
+                }
+            }
+            else{
+                res.status(404).send("nothing")
+                console.log(err)
+            }
+        }
+        catch(err){
+            res.status(500).send(err)
+            console.log(err)
+        } 
+
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
 module.exports = {
     addsupplier,
     getsuppliers,
-    getsupplierId
+    getsupplierId,
+    updatesupplier
 }
 
 
