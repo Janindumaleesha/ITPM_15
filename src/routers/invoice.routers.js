@@ -11,4 +11,10 @@ invoiceRouter.get('/getinvoice' , invoiceController.getinvoices)
 //Get Invoice By Id
 invoiceRouter.get('/getinvoiceid/:invoiceId' , invoiceController.getinvoiceId)
 
+//Update Invoice
+invoiceRouter.get('/updateinvoice/:invoiceId' , invoiceController.updateinvoice)
+
+//Delete Invoice
+invoiceRouter.get('/deleteinvoice/:invoiceId' , invoiceController.deleteinvoice)
+
 module.exports = invoiceRouter
