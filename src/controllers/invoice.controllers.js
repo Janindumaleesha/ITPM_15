@@ -56,18 +56,26 @@ getinvoiceId = async(req,res) => {
 updateinvoice = async(req,res) => {
     try{
         const findInvoiceID = await invoicemodal.findById(req.params.invoiceId)
-        if(findInvoiceID){
-            const updateInvoice = await invoicemodal.updateOne({_id:findInvoiceID._id},{$set:req.body})
-            if(updateInvoice){
-                res.status(200).send("Updated Invoice")
+        try{
+            if(findInvoiceID){
+                const updateInvoice = await invoicemodal.updateOne({_id:findInvoiceID._id},{$set:req.body})
+                if(updateInvoice){
+                    res.status(200).send("Updated Invoice")
+                }
+                else{
+                    res.status(404).send("Not Updated Invoice")
+                }
             }
             else{
-                res.status(304).send("Not Updated Invoice")
+                res.status(404).send("nothing")
+                console.log(err)
             }
         }
-        else{
-            res.status(404).send("nothing")
+        catch(err){
+            res.status(500).send(err)
+            console.log(err)
         } 
+
     }
     catch(err){
         res.status(500).send(err)
@@ -79,11 +87,11 @@ updateinvoice = async(req,res) => {
 deleteinvoice = async(req,res) => {
     try{
         const findInvoice = await invoicemodal.deleteOne({invoiceId:{$_id:'invoiceId'}})
-        if(findBlog){
-            res.status(301).send("Deleted Invoice")
+        if(findInvoice){
+            res.status(200).send("Deleted Invoice")
         }     
         else{
-            res.status(301).send("Not Deleted Invoice")
+            res.status(404).send("Not Deleted Invoice")
         }      
     }
     catch(err){
