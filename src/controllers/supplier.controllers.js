@@ -88,11 +88,30 @@ updatesupplier = async(req,res) => {
     }
 }
 
+//Delete Invoice
+deletesupplier = async(req,res) => {
+    try{
+        const findSupplier = await suppliermodal.deleteOne({supplierId:{$_id:'supplierId'}})
+        if(findSupplier){
+            res.status(200).send("Deleted Supplier")
+        }     
+        else{
+            res.status(404).send("Not Deleted Supplier")
+        }      
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
 module.exports = {
     addsupplier,
     getsuppliers,
     getsupplierId,
-    updatesupplier
+    updatesupplier,
+    deletesupplier
+
 }
 
 
