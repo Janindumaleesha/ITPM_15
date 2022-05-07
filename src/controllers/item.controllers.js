@@ -43,7 +43,7 @@ getitemId = async(req,res) => {
     try{
         const getItemId = await itemModal.findById(req.params.itemId)
         if(getItemId){
-            res.status(302).send(getItemId)
+            res.status(200).send(getItemId)
         }
         else{
             res.status(404).send("nothing")
