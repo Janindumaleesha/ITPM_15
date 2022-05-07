@@ -38,9 +38,10 @@ getinvoices = async(req,res) => {
 //Get Invoice by ID
 getinvoiceId = async(req,res) => {
     try{
+        console.log(req.params.invoiceId)
         const getInvoiceId = await invoicemodal.findById(req.params.invoiceId)
         if(getInvoiceId){
-            res.status(302).send(getInvoiceId)
+            res.status(200).send(getInvoiceId)
         }
         else{
             res.status(404).send("nothing")
@@ -60,7 +61,7 @@ updateinvoice = async(req,res) => {
             if(findInvoiceID){
                 const updateInvoice = await invoicemodal.updateOne({_id:findInvoiceID._id},{$set:req.body})
                 if(updateInvoice){
-                    res.status(200).send("Updated Invoice")
+                    res.status(200).send(true)
                 }
                 else{
                     res.status(404).send("Not Updated Invoice")
