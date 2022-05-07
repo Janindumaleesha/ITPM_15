@@ -55,10 +55,59 @@ getitemId = async(req,res) => {
 
 }
 
+//Update Item
+updateitem = async(req,res) => {
+    try{
+        const findItemID = await itemModal.findById(req.params.itemId)
+        try{
+            if(findItemID){
+                const updateItem = await itemModal.updateOne({_id:findItemID._id},{$set:req.body})
+                if(updateItem){
+                    res.status(200).send(true)
+                }
+                else{
+                    res.status(404).send("Not Updated Item")
+                }
+            }
+            else{
+                res.status(404).send("nothing")
+                console.log(err)
+            }
+        }
+        catch(err){
+            res.status(500).send(err)
+            console.log(err)
+        } 
+
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
+//Delete Item
+deleteitem = async(req,res) => {
+    try{
+        const findItem = await itemModal.deleteOne({itemId:{$_id:'itemId'}})
+        if(findItem){
+            res.status(200).send("Deleted Item")
+        }     
+        else{
+            res.status(404).send("Not Deleted Item")
+        }      
+    }
+    catch(err){
+        res.status(500).send(err)
+        console.log(err)
+    }
+}
+
 module.exports = {
     additem,
     getitems,
-    getitemId
-    
+    getitemId,
+    updateitem,
+    deleteitem
 }
 
