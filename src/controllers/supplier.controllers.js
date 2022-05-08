@@ -45,7 +45,7 @@ getsupplierId = async(req,res) => {
     try{
         const getSupplierId = await suppliermodal.findById(req.params.supplierId)
         if(getSupplierId){
-            res.status(302).send(getSupplierId)
+            res.status(200).send(getSupplierId)
         }
         else{
             res.status(404).send("nothing")
