@@ -8,7 +8,7 @@ supplierRouter.post('/addsupplier' , supplierController.addsupplier)
 //Get All Suppliers
 supplierRouter.get('/getsupplier' , supplierController.getsuppliers)
 
-//Get Supplier By Id
+//Get Supplier ById
 supplierRouter.get('/getsupplierid/:supplierId' , supplierController.getsupplierId)
 
 //Update Supplier
